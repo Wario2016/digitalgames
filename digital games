@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DIGITAL GAMES</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #03010c;
+    color: white;
+}
+
+/* GALAXIA */
+.galaxy {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+        radial-gradient(ellipse at 50% 45%,
+            rgba(100, 20, 200, .35), transparent 45%),
+        radial-gradient(ellipse at 15% 20%,
+            rgba(0, 100, 255, .3), transparent 40%),
+        radial-gradient(ellipse at 85% 75%,
+            rgba(255, 0, 180, .22), transparent 40%),
+        linear-gradient(135deg, #02010a, #100520, #010816);
+}
+
+/* ESTRELLAS */
+.stars {
+    position: fixed;
+    inset: -100%;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+        radial-gradient(2px 2px at 10% 20%, white, transparent),
+        radial-gradient(2px 2px at 30% 80%, #91cfff, transparent),
+        radial-gradient(1px 1px at 50% 40%, white, transparent),
+        radial-gradient(2px 2px at 75% 25%, #e0b4ff, transparent),
+        radial-gradient(1px 1px at 90% 65%, white, transparent),
+        radial-gradient(2px 2px at 65% 90%, #a78bff, transparent);
+    background-size: 300px 300px;
+    animation: starsMove 60s linear infinite;
+}
+
+@keyframes starsMove {
+    from { transform: translateY(0); }
+    to { transform: translateY(-300px); }
+}
+
+/* PANTALLA PRINCIPAL */
+.home {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* TÍTULO LED */
+.title {
+    position: relative;
+    font-size: clamp(2.5rem, 8vw, 6.5rem);
+    font-weight: 900;
+    letter-spacing: clamp(3px, 1vw, 10px);
+    text-transform: uppercase;
+    margin-bottom: 25px;
+
+    color: #ffffff;
+    -webkit-text-stroke: 1px rgba(255,255,255,.8);
+
+    animation: textGlow 5s linear infinite;
+}
+
+/* LUCES QUE CAMBIAN DE COLOR */
+@keyframes textGlow {
+    0% {
+        text-shadow:
+            0 0 5px #ff00ff,
+            0 0 12px #ff00ff,
+            0 0 25px #ff00ff,
+            0 0 50px #ff00ff;
+    }
+
+    25% {
+        text-shadow:
+            0 0 5px #00ffff,
+            0 0 12px #00ffff,
+            0 0 25px #00ffff,
+            0 0 50px #00ffff;
+    }
+
+    50% {
+        text-shadow:
+            0 0 5px #00ff66,
+            0 0 12px #00ff66,
+            0 0 25px #00ff66,
+            0 0 50px #00ff66;
+    }
+
+    75% {
+        text-shadow:
+            0 0 5px #ffae00,
+            0 0 12px #ffae00,
+            0 0 25px #ffae00,
+            0 0 50px #ffae00;
+    }
+
+    100% {
+        text-shadow:
+            0 0 5px #ff00ff,
+            0 0 12px #ff00ff,
+            0 0 25px #ff00ff,
+            0 0 50px #ff00ff;
+    }
+}
+
+/* SUBTÍTULO */
+.subtitle {
+    color: #d8c7ff;
+    font-size: clamp(.7rem, 2vw, 1rem);
+    letter-spacing: 5px;
+    margin-bottom: 55px;
+    text-shadow: 0 0 12px #a855ff;
+}
+
+/* BOTÓN GO */
+.go-button {
+    width: 165px;
+    height: 65px;
+    border: 2px solid #bd8aff;
+    border-radius: 12px;
+
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 6px;
+
+    background: linear-gradient(135deg, #8b2cff, #3c16a8);
+    cursor: pointer;
+
+    box-shadow:
+        0 0 10px #a855ff,
+        0 0 25px #7c3aed,
+        inset 0 0 12px rgba(255,255,255,.15);
+
+    transition: transform .25s, box-shadow .25s;
+    animation: buttonGlow 3s linear infinite;
+}
+
+.go-button:hover {
+    transform: scale(1.12);
+    box-shadow:
+        0 0 20px #fff,
+        0 0 40px #a855ff,
+        0 0 80px #7c3aed;
+}
+
+.go-button:active {
+    transform: scale(.96);
+}
+
+@keyframes buttonGlow {
+    0%, 100% { border-color: #bd8aff; }
+    33% { border-color: #00ffff; }
+    66% { border-color: #ff36d7; }
+}
+
+/* PIE DE PANTALLA */
+.footer {
+    position: absolute;
+    bottom: 22px;
+    font-size: .7rem;
+    letter-spacing: 3px;
+    color: #8e80ad;
+}
+
+/* MÓVILES */
+@media (max-width: 500px) {
+    .subtitle {
+        letter-spacing: 2px;
+    }
+
+    .go-button {
+        width: 145px;
+        height: 58px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="galaxy"></div>
+<div class="stars"></div>
+
+<main class="home">
+
+    <h1 class="title">DIGITAL GAMES</h1>
+
+    <p class="subtitle">
+        YOUR UNIVERSE. YOUR GAMES.
+    </p>
+
+    <button class="go-button" id="goButton">
+        GO
+    </button>
+
+    <p class="footer">
+        ENTER ANOTHER UNIVERSE
+    </p>
+
+</main>
+
+<script>
+document.getElementById("goButton").addEventListener("click", () => {
+
+    // Aquí conectaremos tu buscador de videojuegos.
+    if (typeof window.openGameSearch === "function") {
+        window.openGameSearch();
+    } else {
+        console.log("DIGITAL GAMES: listo para abrir el buscador.");
+    }
+
+});
+</script>
+
+</body>
+</html>
