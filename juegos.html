@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Digital Games</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: radial-gradient(circle at top, #28336b, #090d1b 70%);
+      color: #f4f7ff;
+      font-family: system-ui, sans-serif;
+      text-align: center;
+    }
+    main { width: 100%; max-width: 700px; }
+    .label {
+      color: #67e8f9;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 14px;
+    }
+    h1 {
+      margin: 16px 0;
+      font-size: clamp(44px, 10vw, 80px);
+      line-height: 1.1;
+    }
+    .intro { color: #c5cee5; font-size: 20px; }
+    .card {
+      margin-top: 40px;
+      padding: 32px 24px;
+      border: 1px solid #465580;
+      border-radius: 20px;
+      background: #ffffff09;
+    }
+    h2 { margin-top: 0; color: #67e8f9; }
+    .card p { color: #c5cee5; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="label">Bienvenido a</p>
+    <h1>Digital Games</h1>
+    <p class="intro">Tu próxima partida empieza aquí.</p>
+    <section class="card" aria-labelledby="coming-soon">
+      <h2 id="coming-soon">Próximamente</h2>
+      <p>Estamos preparando nuestros primeros videojuegos.
+         ¡Vuelve pronto para descubrirlos!</p>
+    </section>
+  </main>
+</body>
+</html>
