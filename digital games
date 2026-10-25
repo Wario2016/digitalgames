@@ -214,7 +214,7 @@ body {
         YOUR UNIVERSE. YOUR GAMES.
     </p>
 
-    <button class="go-button" id="goButton">
+   <button class="go-button" id="goButton" onclick="window.location.href='juegos.html'">
         GO
     </button>
 
